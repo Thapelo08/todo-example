@@ -49,17 +49,30 @@ preview.innerHTML = /* html */`
  
 /**
  * 
- * @param {string} id 
- * @param {Partial<Pick<Task, 'completed' | 'due' | 'title' | 'urgency'>>} changes 
+ * @param {string} dataAttr
+ * @param {string} {value}
  */
 
 
-const updateHtmlTask = (id, changes) => {
+const updateHtmlTask = (dataAttr, value) => {
+    const element = document.querySelector('[data-task="${id}"]');
+    const isHtmlElement = element instanceof HTMLElement
+    if (!isHtmlElement) throw new Error('')
+
+};
+
+/**
+ * 
+ * @param {string} id -
+ */
+const addTaskToHtml = (id) => {
     const element = document.querySelector('[data-task="${id}"]');
     const isHtmlElement = element instanceof HTMLElement
     if (!isHtmlElement) throw new Error('')
 
 }
+
+
 
 window.addEventListener("error", () => {
     document.body.innerHTML = "Something went very very very wrong. Please refresh.";
