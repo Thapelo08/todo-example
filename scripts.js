@@ -1,6 +1,6 @@
 // @ts-check
 
-import { state } from "./state.js";
+import { state, Task } from "./state.js";
 
 /**
  * 
@@ -50,21 +50,24 @@ preview.innerHTML = /* html */`
 /**
  * 
  * @param {string} id 
- * @param {*} changes 
+ * @param {Partial<Pick<Task, 'completed' | 'due' | 'title' | 'urgency'>>} changes 
  */
 
 
 const updateHtmlTask = (id, changes) => {
+    const element = document.querySelector('[data-task="${id}"]');
+    const isHtmlElement = element instanceof HTMLElement
+    if (!isHtmlElement) throw new Error('')
 
 }
 
 window.addEventListener("error", () => {
-    document.body.innerHTML = "Sometrhing went very very very wrong. Please refresh.";
+    document.body.innerHTML = "Something went very very very wrong. Please refresh.";
 });
 
 addTaskToHtml("test");
-addTaskToHtml("test");
-addTaskToHtml("test");
+addTaskToHtml("test", { title: "Wash the Dog", });
+
 
 
 
