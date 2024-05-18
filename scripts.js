@@ -51,14 +51,19 @@ preview.innerHTML = /* html */`
  * 
  * @param {string} dataAttr
  * @param {string} {value}
+ * @returns {HTMLElement}
  */
 
 
 const updateHtmlTask = (dataAttr, value) => {
     const element = document.querySelector('[data-task="${id}"]');
     const isHtmlElement = element instanceof HTMLElement
-    if (!isHtmlElement) throw new Error('')
+    
+    if (!isHtmlElement) {
+        throw new Error('${selector} attribute not found in HTML');
+    };
 
+    return element;
 };
 
 /**
